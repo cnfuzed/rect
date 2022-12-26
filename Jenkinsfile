@@ -11,7 +11,7 @@ pipeline{
 		stage('Build') {
 
 			steps {
-				sh 'docker build -t cnfuzed/rect.git:latest:v1 .'
+				sh 'docker build -t cnfuzed/rect:v1 .'
 			}
 		}
 
@@ -25,7 +25,7 @@ pipeline{
 		stage('Push') {
 
 			steps {
-				sh 'docker push cnfuzed/rect.git:latest:v1'
+				sh 'docker push cnfuzed/rect:v1'
 			}
 		}
 	}
