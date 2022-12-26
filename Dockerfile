@@ -1,14 +1,6 @@
-FROM node:alpine
- 
-WORKDIR /app
-# install app dependencies
-COPY package.json /app
- 
+FROM node:13-alpine
+RUN mkdir -p /home/app
+COPY ./* /home/app/
+WORKDIR /home/app
 RUN npm install
- 
-# add app
-COPY . /app
-EXPOSE 3000
- 
-# start app
-CMD ["npm", "start"]
+CMD ["node", "index.js"]
