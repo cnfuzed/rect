@@ -1,16 +1,64 @@
-Hello
+Step to implement jenkins pipeline with docker hub
 
-dhsdsj
+========================================================
+{Push docker image from developer machine to docker hub}
+
+1. Create docker file for project.
+2. Create jenkins file to initate jenkins pipeline
+3. Configue Dockerhub cred. under jenkins manage field.
+   Select global and then add dockerhub creds. along with git hub creds.
+4. Install plugins for jenkins docker all github all.
+5. To automatically run build on code commit, follow these steps:
+
+Configuring Jenkins: 
+Jenkins listens for POST requests at a Hook URL. We need to give this URL to the repository on GitHub. Then, whenever code is pushed to that repository, GitHub will send a POST request to the Hook URL and Jenkins will run the build.
+
+To get the Hook URL of Jenkins, Open the Jenkins Dashboard.
+
+Go to: Manage Jenkins > Configure System
+
+Under GitHub Plugin Configuration, Click on ‘Advanced' tab. 
 
 
-sa
-sa
-tt
-r
 
-r
-r
+Check 'Specify another hook url' for GitHub configuration. 
 
-dsdsdsdsds
 
-dsdsdadadadsadadadadadasdsadsadasd
+
+A textbox will appear with a hook URL. This is the Hook URL at which Jenkins will listen for POST requests. Copy this URL and go to the next step.
+
+Configuring GitHub Repository: 
+We now have to provide the Hook URL we got from Jenkins in the previous step.
+
+Open your repository on GitHub.
+
+Click ‘Settings’ on the navigation bar on the right-hand side of the screen.
+
+Click ‘Webhooks ’ on the navigation bar on the left-hand side of the screen.
+
+Click ‘Add webhook’ to add the webhook. 
+
+
+
+Paste the URL you copied in the previous step as the ‘Payload URL’.
+
+You can select the events for which you want the Jenkins build to be triggered. We will select ‘Just the push event’ because we want to run the build when we push our code to the repository.
+
+Click ‘Add webhook’. 
+
+
+
+You should now see the webhook you just added in the list of Webhooks for that repository.
+
+Configuring Jenkins Project : We now have Jenkins configured to run builds automatically when code is pushed to central repositories. However, Jenkins doesn’t run all builds for all projects. To specify which project builds need to run, we have to modify the project configuration.
+
+In Jenkins, go to the project configuration of the project for which you want to run an automated build.
+
+In the ‘Build Triggers’ section, select 'Github hook trigger for GITScm Polling'. 
+
+
+Save your project.
+
+Jenkins will now run the build whenever you push/commit your code to the GitHub repository.
+
+
