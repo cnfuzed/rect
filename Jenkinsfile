@@ -28,7 +28,7 @@ pipeline{
 				sh 'docker push manik212/rect:v1'
 			}
 		}
-	}
+	
 
 
 		stage('Deploy to K8s')
