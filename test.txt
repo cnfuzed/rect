@@ -1,5 +1,7 @@
 Step to implement jenkins pipeline with docker hub
 
+
+NOTE: MAKE SURE YOU ALWAYS HAVE EIP FOR AWS JENKINS ELSE WEBHOOK WONT WORK
 ========================================================
 {Push docker image from developer machine to docker hub}
 
