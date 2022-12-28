@@ -36,7 +36,7 @@ pipeline{
 			steps{
 				sshagent(['k8s-jenkins'])
 				{
-					sh 'scp -r -o StrictHostKeyChecking=no node-deployment.yaml ubuntu@3.141.16.27:/path'
+					sh 'scp -r -o StrictHostKeyChecking=no node-deployment.yaml ubuntu@3.141.16.27:/home/ubuntu/'
 					
 					script{
 						try{
