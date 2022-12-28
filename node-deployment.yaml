@@ -16,7 +16,7 @@ spec:
          containers:
            - name: nodejsapp-erp
              image: "manik212/rect:v1"
-  replicas: 1
+  replicas: 4 
   selector:
     matchLabels:
       type: front-end
