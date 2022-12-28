@@ -30,6 +30,28 @@ pipeline{
 		}
 	}
 
+
+		stage('Deploy to K8s')
+		{
+			steps{
+				sshagent(['k8s-jenkins'])
+				{
+					sh 'scp -r -o StrictHostKeyChecking=no node-deployment.yaml ubuntu@3.141.16.27:/path'
+					
+					script{
+						try{
+							sh 'ssh ubuntu@3.141.16.27 kubectl apply -f ./node-deployment.yaml --kubeconfig=/home/ubuntu/.kube/config'
+
+							}catch(error)
+							{
+
+							}
+					}
+				}
+			}
+		}
+	}
+
 	post {
 		always {
 			sh 'docker logout'
